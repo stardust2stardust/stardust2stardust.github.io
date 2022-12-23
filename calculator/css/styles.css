@@ -1,3 +1,14 @@
+:root {
+    --black: #000000;
+    --white: #ffffff;
+    --neutral-light: #ebebeb;
+    --neutral-medium: #d8d9db;
+    --neutral-dark: #bbbcbe;
+    --color-light: #dfb07e;
+    --color-medium: #df974c;
+    --color-dark: #dd8d37;
+}
+
 html {
     box-sizing: border-box;
 }
