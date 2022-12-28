@@ -16,15 +16,16 @@ function buttonClick(value) {
 }
 
 function handleSymbol(symbol) {
-    switch (value) {
+    console.log('handleSymbol', symbol)
+    switch (symbol) {
         case 'C': 
             buffer = '0';
             runningTotal = 0;
             break;
-        case '&#43;': // addition
-        case '&#8722;': // subtraction 
-        case '&#247;': // multiply
-        case '&#215;': // divide
+        case '+': // addition
+        case '−': // subtraction 
+        case '×': // multiply
+        case '÷': // divide
             handleMath(symbol);
             break;
     }
@@ -58,7 +59,16 @@ function handleMath (symbol) {
 }
 
 function flushOperation(intBuffer) {
-
+    if (previousOperator === '+') {
+        runningTotal += intBuffer;
+    } else if (previousOperator === '−') {
+        runningTotal -= intBuffer;
+    } else if (previousOperator === '×') {
+        runningTotal *= intBuffer;
+    } else if (previousOperator === '÷') {
+        runningTotal /= intBuffer;
+    }
+    console.log(runningTotal)
 }
 
 function init () {
