@@ -31,7 +31,11 @@ function handleSymbol(symbol) {
             runningTotal = 0;
             break;
         case '←':
-            buffer = buffer.slice(0, -1);
+            if (buffer.length === 1) {
+                buffer = '0'
+            } else {
+                buffer = buffer.slice(0, -1);
+            }
             break;
         case '+': // addition
         case '−': // subtraction 
