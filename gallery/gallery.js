@@ -6,7 +6,13 @@ let currentlySelected = 0;
 
 
 prevBtn.addEventListener('click', function() {
-
+    galleryImgs[currentlySelected].classList.remove('active');
+    currentlySelected--;
+    galleryImgs[currentlySelected].classList.add('active');
+    nextBtn.disabled = false;
+    if (currentlySelected === 0) {
+        prevBtn.disabled = true;
+    }
 });
 
 nextBtn.addEventListener('click', function() {
