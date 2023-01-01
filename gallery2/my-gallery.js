@@ -27,4 +27,8 @@ const swiper = new Swiper('.swiper', {
     scrollbar: {
       el: '.swiper-scrollbar',
     },
+
+    // add effect
+    effect: "flip",
+
   });
