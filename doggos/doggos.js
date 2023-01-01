@@ -1,7 +1,10 @@
-const BREEDS_URL = "https://dog.ceo/api/breeds/image/random";
+const DOGS_URL = "https://dog.ceo/api/breeds/image/random";
 
 function addDoggo () {
-    const promise = fetch(BREEDS_URL);
+
+    // show loading spinner
+
+    const promise = fetch(DOGS_URL);
     
     promise
       .then(function(response) {
@@ -15,6 +18,8 @@ function addDoggo () {
         img.alt = "cute doggo";
     
         document.querySelector(".doggos").appendChild(img);
+
+        // stop showing loading spinner
       });
 
 }
@@ -22,4 +27,25 @@ function addDoggo () {
 document.querySelector('.add-doggo').addEventListener('click', addDoggo)
 
 
-console.log("this will log first");
+const BREEDS_URL = 'https://dog.ceo/api/breeds/list/all';
+
+fetch(BREEDS_URL)
+    .then(function(response) {
+        return response.json();
+    })
+    .then(function(data) {
+        // console.log(Object.keys(data.message))
+        const breedsObject = data.message;
+        const breedsArray = Object.keys(breedsObject)
+        console.log(breedsArray)
+
+        const select = document.querySelector('.breeds');
+
+        for (let i=0; i < breedsArray.length; i++) {
+            const option = document.createElement('option')
+            option.value = breedsArray[i];
+            option.innerText = breedsArray[i];
+            select.appendChild(option);
+        }
+
+    })
